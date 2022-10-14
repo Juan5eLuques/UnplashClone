@@ -5,7 +5,7 @@ export const Experimental = () => {
 
   return (
         <div>
-        <ListImages keyword={'Peliculas'}></ListImages>
+        <ListImages keyword={'peliculas'}></ListImages>
         </div>
   )
 }

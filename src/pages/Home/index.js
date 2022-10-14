@@ -6,9 +6,7 @@ export default function Home () {
 
   return (
     <div>
-    <section className='app-content'>
-    <ListImages keyword={'random'}></ListImages>
-    </section>
+    <ListImages keyword={'programming'}></ListImages>
     </div>
   )
 }

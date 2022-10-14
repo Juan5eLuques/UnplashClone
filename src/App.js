@@ -1,12 +1,17 @@
 import React from 'react'
-import { Form,Input,ButtonSearch,LogoSearch, Header,ButtonLogo,ListCategoriesContainer} from './style/Layout'
-import { useState } from 'react'
+import {ListItemCategoryMenu, Form,Input,ButtonSearch,LogoSearch,SCLink,Header,ButtonLogo} from './style/Layout'
+import {useState} from 'react'
 import {ListImages} from './components/ListImages'
 import {Logo} from './components/Logo'
-import { Route, useLocation} from "wouter"
+import {Route, useLocation} from "wouter"
 import Home from './pages/Home'
-import { Experimental } from './pages/Experimental'
+import GvS from './pages/GvS'
+import Renders from './pages/Renders'
+import CurrentEvents from './pages/CurrentEvents'
+import TexturesAndPatterns from './pages/TexturesAndPatterns'
+import Wallpaper from './pages/Wallpaper'
 import { ListCategories } from './components/ListCategories'
+
 
 const App = () => {
   
@@ -40,20 +45,24 @@ const App = () => {
         <Input placeholder='Busca fotos de alta resolución gratis' onChange={handlerChange} type='text' value={search}></Input>
         </Form>
       </div>
-      <ListCategories></ListCategories>
+      <div>
+      <ListItemCategoryMenu>
+        <SCLink to='/algo'><li>Explorar</li></SCLink>
+        <SCLink to='/algo'><li>Anunciarse</li></SCLink>
+        <SCLink to='algo'><li>Blog</li></SCLink>
+      </ListItemCategoryMenu>
+      </div>
     </Header>
-    <section className='app-content'>
-      <Route 
-      component={Home}
-      path='/'>
-      </Route>
+    <ListCategories></ListCategories>
+      <Route component={Home} path='/'></Route>
       <Route path='/search/image/:keyword'>
       {params => <ListImages keyword={params.keyword}></ListImages>}
       </Route>
-      <Route path='/topic/images/peliculas'>
-          {Experimental}
-        </Route>
-    </section>
+      <Route path='/es/t/girls-vs-stereotypes'>{GvS}</Route>
+      <Route path='/es/t/current-events'>{CurrentEvents}</Route>
+      <Route path='/es/t/wallpapers'>{Wallpaper}</Route>
+      <Route path='/es/t/3d-renders'>{Renders}</Route>
+      <Route path='/es/t/textures-patterns'>{TexturesAndPatterns}</Route>
   </div>
   )
 
